@@ -8,6 +8,9 @@ import boto3
 import os
 
 # Set variables
+date_min = '2019-03-11'
+date_max = '2019-03-12'
+
 BUCKET_NAME = os.environ['BUCKET_NAME']
 BUCKET_KEY_PREFIX = os.environ['BUCKET_KEY_PREFIX']
 S3_ACCESS_KEY_ID = os.environ['S3_ACCESS_KEY_ID']
@@ -52,8 +55,6 @@ def main():
     target_bucket = ga_s3_conn.Bucket(GA_BUCKET_NAME)
     files = []
     timestamps = []
-    date_min = '2019-03-11'
-    date_max = '2019-03-12'
 
     logger.info("Running loops...")
     for file_list in source_bucket.objects.filter(Prefix=BUCKET_KEY_PREFIX):
