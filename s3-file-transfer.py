@@ -76,7 +76,6 @@ def main():
 
     logger.info("Copying files...")
     for x in dictionary.items():
-        # print(x[0])
         if (x[1] >= date_min) and (x[1] <= date_max):
             filename = x[0]
             obj = target_bucket.Object(GA_BUCKET_KEY_PREFIX + '/' + filename)
